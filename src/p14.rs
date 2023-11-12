@@ -26,7 +26,7 @@ fn is_vowel(b: &u8) -> usize {
     }
 }
 
-//Quick solution. Too slow for the challenge
+// Quick solution. Too slow for the challenge
 // impl Solution {
 //     pub fn max_vowels(s: String, k: i32) -> i32 {
 //         s.chars()
