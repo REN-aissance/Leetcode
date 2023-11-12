@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(unused_variables)]
 mod p1;
 mod p10;
 mod p11;
@@ -28,6 +29,8 @@ mod p32;
 mod p33;
 mod p34;
 mod p35;
+mod p36;
+mod p37;
 mod p4;
 mod p5;
 mod p6;

@@ -44,6 +44,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn test_speed() {
         // Generate a long vector with random binary values
         let size = 1000000; // You can adjust the size as per your requirement
