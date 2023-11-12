@@ -1,5 +1,8 @@
 use crate::solution::Solution;
 
+/// Not a good challenge for rust. No idea why using Option<Box<ListNode>>
+/// They should have used LinkedList
+
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -9,8 +12,20 @@ pub struct ListNode {
 
 impl ListNode {
     #[inline]
-    fn new(val: i32) -> Self {
+    pub fn new(val: i32) -> Self {
         ListNode { next: None, val }
+    }
+}
+
+impl ListNode {
+    pub fn from(values: Vec<i32>) -> Option<Box<ListNode>> {
+        let mut head = None;
+        for &val in values.iter().rev() {
+            let mut node = ListNode::new(val);
+            node.next = head;
+            head = Some(Box::new(node));
+        }
+        head
     }
 }
 
@@ -41,33 +56,22 @@ mod tests {
 
     #[test]
     fn test_example_1() {
-        let input = create_linked_list(vec![1, 3, 4, 7, 1, 2, 6]);
-        let result = create_linked_list(vec![1, 3, 4, 1, 2, 6]);
+        let input = ListNode::from(vec![1, 3, 4, 7, 1, 2, 6]);
+        let result = ListNode::from(vec![1, 3, 4, 1, 2, 6]);
         assert_eq!(Solution::delete_middle(input), result);
     }
 
     #[test]
     fn test_example_2() {
-        let input = create_linked_list(vec![1, 2, 3, 4]);
-        let result = create_linked_list(vec![1, 2, 4]);
+        let input = ListNode::from(vec![1, 2, 3, 4]);
+        let result = ListNode::from(vec![1, 2, 4]);
         assert_eq!(Solution::delete_middle(input), result);
     }
 
     #[test]
     fn test_example_3() {
-        let input = create_linked_list(vec![2, 1]);
-        let result = create_linked_list(vec![2]);
+        let input = ListNode::from(vec![2, 1]);
+        let result = ListNode::from(vec![2]);
         assert_eq!(Solution::delete_middle(input), result);
-    }
-
-    // Helper function to create a linked list from a vector
-    fn create_linked_list(values: Vec<i32>) -> Option<Box<ListNode>> {
-        let mut head = None;
-        for &val in values.iter().rev() {
-            let mut node = ListNode::new(val);
-            node.next = head;
-            head = Some(Box::new(node));
-        }
-        head
     }
 }
