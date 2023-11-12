@@ -64,33 +64,30 @@ mod tests {
 
     #[test]
     fn test_case1() {
-        assert_eq!(
-            Solution::close_strings("abc".to_string(), "bca".to_string()),
-            true
-        );
+        assert!(Solution::close_strings(
+            "abc".to_string(),
+            "bca".to_string()
+        ));
     }
 
     #[test]
     fn test_case2() {
-        assert_eq!(
-            Solution::close_strings("a".to_string(), "aa".to_string()),
-            false
-        );
+        assert!(!Solution::close_strings("a".to_string(), "aa".to_string()));
     }
 
     #[test]
     fn test_case3() {
-        assert_eq!(
-            Solution::close_strings("cabbba".to_string(), "abbccc".to_string()),
-            true
-        );
+        assert!(Solution::close_strings(
+            "cabbba".to_string(),
+            "abbccc".to_string()
+        ));
     }
 
     #[test]
     fn test_case4() {
-        assert_eq!(
-            Solution::close_strings("uau".to_string(), "ssx".to_string()),
-            false
-        );
+        assert!(!Solution::close_strings(
+            "uau".to_string(),
+            "ssx".to_string()
+        ));
     }
 }

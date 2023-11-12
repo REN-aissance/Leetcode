@@ -26,11 +26,11 @@ mod tests {
     #[test]
     fn test1() {
         let result = Solution::is_subsequence("abc".to_string(), "ahbgdc".to_string());
-        assert_eq!(result, true);
+        assert!(result);
     }
     #[test]
     fn test2() {
         let result = Solution::is_subsequence("axc".to_string(), "ahbgdc".to_string());
-        assert_eq!(result, false);
+        assert!(!result);
     }
 }

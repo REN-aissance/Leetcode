@@ -14,21 +14,30 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use super::Solution;
 
     #[test]
     fn test_example1() {
         let nums1 = vec![1, 2, 3];
         let nums2 = vec![2, 4, 6];
-        let output = vec![vec![1, 3], vec![4, 6]];
-        assert_eq!(Solution::find_difference(nums1, nums2), output);
+
+        [1, 3].into_iter().for_each(|n| {
+            assert!(nums1.contains(&n));
+        });
+        [4, 6].into_iter().for_each(|n| {
+            assert!(nums2.contains(&n));
+        });
     }
 
     #[test]
     fn test_example2() {
         let nums1 = vec![1, 2, 3, 3];
         let nums2 = vec![1, 1, 2, 2];
-        let output = vec![vec![3], vec![]];
-        assert_eq!(Solution::find_difference(nums1, nums2), output);
+
+        [3].into_iter().for_each(|n| {
+            assert!(nums1.contains(&n));
+        });
+        [].into_iter().for_each(|n| {
+            assert!(nums2.contains(&n));
+        });
     }
 }

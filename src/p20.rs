@@ -25,18 +25,18 @@ mod tests {
     #[test]
     fn test_case1() {
         let arr = vec![1, 2, 2, 1, 1, 3];
-        assert_eq!(Solution::unique_occurrences(arr), true);
+        assert!(Solution::unique_occurrences(arr));
     }
 
     #[test]
     fn test_case2() {
         let arr = vec![1, 2];
-        assert_eq!(Solution::unique_occurrences(arr), false);
+        assert!(!Solution::unique_occurrences(arr));
     }
 
     #[test]
     fn test_case3() {
         let arr = vec![-3, 0, 1, -3, 1, 1, 1, -3, 10, 0];
-        assert_eq!(Solution::unique_occurrences(arr), true);
+        assert!(Solution::unique_occurrences(arr));
     }
 }

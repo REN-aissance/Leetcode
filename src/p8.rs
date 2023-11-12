@@ -24,16 +24,16 @@ mod tests {
     #[test]
     fn test1() {
         let result = Solution::increasing_triplet(vec![1, 2, 3, 4, 5]);
-        assert_eq!(result, true);
+        assert!(result);
     }
     #[test]
     fn test2() {
         let result = Solution::increasing_triplet(vec![5, 4, 3, 2, 1]);
-        assert_eq!(result, false);
+        assert!(!result);
     }
     #[test]
     fn test4() {
         let result = Solution::increasing_triplet(vec![2, 1, 5, 0, 4, 6]);
-        assert_eq!(result, true);
+        assert!(result);
     }
 }
