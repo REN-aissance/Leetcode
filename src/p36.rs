@@ -38,7 +38,7 @@ mod tests {
     #[test]
     fn example_1() {
         let nums = vec![10, 5, -3, 3, 2, 0, 11, 3, -2, 0, 1];
-        let root = vec_to_tree(nums);
+        let root = Solution::vec_to_tree(nums);
         let target_sum = 8;
         assert_eq!(Solution::path_sum(root, target_sum), 3);
     }
@@ -46,7 +46,7 @@ mod tests {
     #[test]
     fn example_2() {
         let nums = vec![5, 4, 8, 11, 0, 13, 4, 7, 2, 0, 0, 5, 1];
-        let root = vec_to_tree(nums);
+        let root = Solution::vec_to_tree(nums);
         let target_sum = 22;
         assert_eq!(Solution::path_sum(root, target_sum), 3);
     }
@@ -56,23 +56,8 @@ mod tests {
         let nums = vec![
             1000000000, 1000000000, 0, 294967296, 0, 1000000000, 0, 1000000000, 0, 1000000000,
         ];
-        let root = vec_to_tree(nums);
+        let root = Solution::vec_to_tree(nums);
         let target_sum = 0;
         assert_eq!(Solution::path_sum(root, target_sum), 0);
-    }
-
-    fn vec_to_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        fn build_tree(nums: &[i32], index: usize) -> Option<Rc<RefCell<TreeNode>>> {
-            if index >= nums.len() || nums[index] == 0 {
-                return None;
-            }
-
-            let node = Rc::new(RefCell::new(TreeNode::new(nums[index])));
-            node.borrow_mut().left = build_tree(nums, 2 * index + 1);
-            node.borrow_mut().right = build_tree(nums, 2 * index + 2);
-            Some(node)
-        }
-
-        build_tree(&nums, 0)
     }
 }

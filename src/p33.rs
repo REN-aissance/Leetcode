@@ -44,26 +44,16 @@ mod tests {
 
     #[test]
     fn test_max_depth_example1() {
-        let root = Some(Rc::new(RefCell::new(TreeNode {
-            val: 3,
-            left: Some(Rc::new(RefCell::new(TreeNode::new(9)))),
-            right: Some(Rc::new(RefCell::new(TreeNode {
-                val: 20,
-                left: Some(Rc::new(RefCell::new(TreeNode::new(15)))),
-                right: Some(Rc::new(RefCell::new(TreeNode::new(7)))),
-            }))),
-        })));
+        let nums = vec![3, 9, 20, 15, 7];
+        let root = Solution::vec_to_tree(nums);
         let expected = 3;
         assert_eq!(Solution::max_depth(root), expected);
     }
 
     #[test]
     fn test_max_depth_example2() {
-        let root = Some(Rc::new(RefCell::new(TreeNode {
-            val: 1,
-            left: None,
-            right: Some(Rc::new(RefCell::new(TreeNode::new(2)))),
-        })));
+        let nums = vec![1, 0, 2];
+        let root = Solution::vec_to_tree(nums);
         let expected = 2;
         assert_eq!(Solution::max_depth(root), expected);
     }
