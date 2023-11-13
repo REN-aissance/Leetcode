@@ -42,12 +42,12 @@ impl Solution {
                 [left, right] => (*left, *right),
                 _ => return None,
             };
-            if l == 1 {
+            if l != 0 {
                 let left_node = Rc::new(RefCell::new(TreeNode::new(l)));
                 cur.borrow_mut().left = Some(left_node.clone());
                 q.push_back(left_node);
             }
-            if r == 1 {
+            if r != 0 {
                 let right_node = Rc::new(RefCell::new(TreeNode::new(r)));
                 cur.borrow_mut().right = Some(right_node.clone());
                 q.push_back(right_node);
