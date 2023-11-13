@@ -11,16 +11,16 @@ impl Solution {
         rview(&root, &mut out, 0);
         return out;
 
-        fn rview(root: &OptNode, out: &mut Vec<i32>, depth: i32) {
+        fn rview(root: &OptNode, out: &mut Vec<i32>, depth: usize) {
             if root.is_some() {
-                if depth == out.len() as i32 {
+                if depth == out.len() {
                     out.push(root.as_ref().unwrap().borrow().val);
                 }
                 rview(&root.as_ref().unwrap().borrow().right, out, depth + 1);
                 rview(&root.as_ref().unwrap().borrow().left, out, depth + 1);
             }
         }
-    }    
+    }
 }
 
 #[cfg(test)]
